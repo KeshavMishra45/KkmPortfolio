@@ -2,50 +2,67 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#070b16" />
+    <meta
+      name="description"
+      content="Keshav Mishra – Computer Science undergraduate focused on data science, machine learning and full-stack web development."
+    />
     <title>Keshav Mishra | Portfolio</title>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div id="loader">
+    <!-- Boot screen: lines are typed by script.js -->
+    <div id="loader" aria-hidden="true">
       <div class="loader-inner">
         <div class="loader-title">Keshav Mishra</div>
-        <div class="loader-sub">Loading portfolio...</div>
-        <div class="loader-status">
-          <span>&gt; LOADING...</span>
-          <span>&gt; TOKENIZE</span>
-          <span>&gt; INFERENCE</span>
-          <span>&gt; READY</span>
+        <div class="loader-lines">
+          <p data-loader-line>&gt; booting portfolio...</p>
+          <p data-loader-line>&gt; loading experience, projects, skills</p>
+          <p data-loader-line>&gt; ready.</p>
         </div>
+        <div class="loader-bar"><span></span></div>
       </div>
     </div>
 
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
     <header class="site-header" id="top">
       <div class="container header-inner">
-        <div class="brand">
-          <div class="brand-mark">KM</div>
-          <div class="brand-text">
+        <a class="brand" href="#top" aria-label="Keshav Mishra – back to top">
+          <span class="brand-mark">KM</span>
+          <span class="brand-text">
             <span class="brand-name">Keshav Mishra</span>
             <span class="brand-role">Computer Science Undergraduate</span>
-          </div>
-        </div>
-        <nav class="nav">
-          <button class="nav-toggle" aria-label="Toggle navigation">
+          </span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            <span></span>
             <span></span>
             <span></span>
           </button>
-          <ul class="nav-links">
+          <ul class="nav-links" id="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -53,94 +70,148 @@
 
     <main>
       <!-- Hero -->
-      <section class="hero">
-        <div class="floating-orbs">
+      <section class="hero" aria-labelledby="hero-name">
+        <div class="floating-orbs" aria-hidden="true">
           <span class="orb orb-1"></span>
           <span class="orb orb-2"></span>
           <span class="orb orb-3"></span>
         </div>
         <div class="container hero-inner">
           <div class="hero-text">
-            <p class="eyebrow">Computer Science Undergraduate</p>
-            <h1>Keshav Mishra</h1>
-            <p class="hero-summary">
-              Computer Science undergraduate with CGPA 8.7 and hands-on experience in Data Science,
-              Machine Learning, and Full-Stack Web Development. I build production-ready web
-              applications, predictive ML models, and interactive dashboards that turn data into
-              decisions.
+            <p class="hero-hello"><span data-type-hero="hello">Hello, I'm</span></p>
+            <h1 id="hero-name"><span data-type-hero="name">Keshav Mishra</span></h1>
+            <p class="hero-role" aria-live="off">
+              <span class="hero-role-prefix">I'm into</span>
+              <span
+                id="role"
+                data-roles='["Data Science &amp; ML","Full-Stack Web Development","Recommendation Systems","Clean, fast interfaces"]'
+                >Data Science &amp; ML</span
+              ><span class="caret" aria-hidden="true"></span>
             </p>
-            <div class="hero-meta">
-              <div>
-                <span class="meta-label">Location</span>
-                <span class="meta-value">Bhubaneswar, India</span>
-              </div>
-              <div>
-                <span class="meta-label">Email</span>
-                <a class="meta-value" href="mailto:keshavmishradeoghar2021@gmail.com"
-                  >keshavmishradeoghar2021@gmail.com</a
-                >
-              </div>
-              <div>
-                <span class="meta-label">Phone</span>
-                <a class="meta-value" href="tel:+917209445949">+91 72094 45949</a>
-              </div>
-            </div>
+            <p class="hero-summary">
+              <span data-type-hero="summary"
+                >Computer Science undergraduate with a CGPA of 8.66 and hands-on experience in Data
+                Science, Machine Learning and Full-Stack Web Development. I build web applications,
+                predictive ML models and dashboards that turn data into decisions.</span
+              >
+            </p>
             <div class="hero-actions">
               <a href="#projects" class="btn primary">View Projects</a>
               <a href="#contact" class="btn ghost">Contact Me</a>
             </div>
+            <ul class="hero-meta">
+              <li>
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Bhubaneswar, India</span>
+              </li>
+              <li>
+                <span class="meta-label">Email</span>
+                <a class="meta-value" href="mailto:keshavmishradeoghar2021@gmail.com"
+                  >keshavmishradeoghar2021@gmail.com</a
+                >
+              </li>
+              <li>
+                <span class="meta-label">Phone</span>
+                <a class="meta-value" href="tel:+917209445949">+91 72094 45949</a>
+              </li>
+            </ul>
             <div class="hero-links">
               <a
                 href="https://www.linkedin.com/in/keshav-mishra-003666340"
                 target="_blank"
-                rel="noreferrer"
-                >LinkedIn</a
+                rel="noreferrer noopener"
+                aria-label="LinkedIn profile"
               >
-              <span>•</span>
-              <a href="https://github.com/KeshavMishra45" target="_blank" rel="noreferrer"
-                >GitHub</a
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.29 8.33H4.7V24H.29zM8.42 8.33h4.2v2.13h.06c.58-1.1 2-2.26 4.11-2.26 4.4 0 5.21 2.9 5.21 6.67V24h-4.42v-7.66c0-1.83-.03-4.19-2.55-4.19-2.55 0-2.94 1.99-2.94 4.05V24H8.42z" /></svg>
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/KeshavMishra45"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="GitHub profile"
               >
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.17 9.06 7.57 10.53.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.03-3.08.67-3.73-1.32-3.73-1.32-.5-1.28-1.22-1.63-1.22-1.63-.99-.68.08-.66.08-.66 1.1.08 1.68 1.14 1.68 1.14.97 1.66 2.55 1.18 3.18.9.1-.7.38-1.18.68-1.45-2.46-.28-5.04-1.23-5.04-5.49 0-1.21.43-2.2 1.14-2.98-.12-.28-.5-1.4.11-2.92 0 0 .95-.3 3.12 1.14a10.7 10.7 0 0 1 5.68 0c2.17-1.44 3.12-1.14 3.12-1.14.61 1.52.24 2.64.12 2.92.71.78 1.13 1.77 1.13 2.98 0 4.28-2.59 5.2-5.06 5.47.39.34.73 1.02.73 2.06 0 1.49-.01 2.69-.01 3.06 0 .29.2.64.76.53a10.74 10.74 0 0 0 7.56-10.52C23.1 5.33 18.27.5 12 .5Z" /></svg>
+                GitHub
+              </a>
             </div>
           </div>
+
           <div class="hero-panel">
-            <div class="hero-photo">
-              <img src="WhatsApp Image 2026-03-09 at 7.09.21 PM.jpeg" alt="Portrait of Keshav Mishra" />
-            </div>
-            <div class="hero-card">
-              <h2>Data Science & Full‑Stack</h2>
-              <p>
-                I design, build, and deploy data‑driven solutions—from REST APIs and dashboards to
-                recommendation systems.
-              </p>
-              <ul>
-                <li>CGPA 8.7 (B.Tech CSE)</li>
-                <li>Internships in Data Science & Web Dev</li>
-                <li>MongoDB, React, Python, Node.js</li>
-              </ul>
+            <div class="avatar">
+              <div class="avatar-ring" aria-hidden="true"></div>
+              <div class="hero-photo">
+                <img
+                  src="WhatsApp Image 2026-03-09 at 7.09.21 PM.jpeg"
+                  alt="Portrait of Keshav Mishra"
+                  width="1024"
+                  height="1024"
+                />
+              </div>
+              <div class="orbit" aria-hidden="true">
+                <span style="--a: 0deg"><b>Python</b></span>
+                <span style="--a: 72deg"><b>React</b></span>
+                <span style="--a: 144deg"><b>Node.js</b></span>
+                <span style="--a: 216deg"><b>MongoDB</b></span>
+                <span style="--a: 288deg"><b>SQL</b></span>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="container">
+          <ul class="stats">
+            <li>
+              <span class="stat-num" data-count="8.66" data-decimals="2">8.66</span>
+              <span class="stat-label">CGPA, B.Tech CSE</span>
+            </li>
+            <li>
+              <span class="stat-num" data-count="2">2</span>
+              <span class="stat-label">Internships completed</span>
+            </li>
+            <li>
+              <span class="stat-num" data-count="2">2</span>
+              <span class="stat-label">Full-stack &amp; ML projects</span>
+            </li>
+            <li>
+              <span class="stat-num" data-count="85" data-suffix="%+">85%+</span>
+              <span class="stat-label">Accuracy on ML models</span>
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <!-- About / Summary -->
-      <section id="about" class="section section-split">
+      <!-- About -->
+      <section id="about" class="section">
         <div class="container">
           <div class="section-heading">
-            <h2>Summary</h2>
+            <h2 data-type>About me</h2>
           </div>
-          <div class="section-content">
-            <p>
-              I am a Computer Science undergraduate at Gandhi Engineering College with a strong
-              foundation in algorithms, databases, and operating systems, and a CGPA of 8.7. I enjoy
-              combining clean engineering with practical problem‑solving—whether that is optimizing
-              database queries, improving UI responsiveness, or increasing the accuracy of machine
-              learning models.
-            </p>
-            <p>
-              Recently I have built ML models achieving 85%+ accuracy on datasets of over 5,000
-              records, reduced manual reporting effort by 50% through BI dashboards, and improved
-              database performance by up to 40% on production‑like workloads.
-            </p>
+          <div class="about-grid">
+            <div class="section-content">
+              <p>
+                I am a Computer Science undergraduate at Gandhi Engineering College (B.Tech CSE,
+                since September 2023) with a strong foundation in algorithms, databases and
+                operating systems, and a CGPA of 8.66. I enjoy pairing clean engineering with
+                practical problem solving, whether that is optimising database queries, improving
+                UI responsiveness or raising the accuracy of a machine learning model.
+              </p>
+              <p>
+                Recently I have built ML models with 85%+ accuracy on datasets of 5,000+ records,
+                cut manual reporting effort by 50% with BI dashboards, and improved database
+                performance by up to 40%.
+              </p>
+            </div>
+            <ul class="focus-list">
+              <li class="card" data-spot>
+                <h3>Data Science &amp; ML</h3>
+                <p>Predictive models, data analysis, visualisation and recommendation systems.</p>
+              </li>
+              <li class="card" data-spot>
+                <h3>Full-Stack Web</h3>
+                <p>React front ends with Node.js and PHP back ends on MongoDB, MySQL and SQL.</p>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -149,49 +220,60 @@
       <section id="experience" class="section section-alt">
         <div class="container">
           <div class="section-heading">
-            <h2>Experience</h2>
+            <h2 data-type>Experience</h2>
           </div>
-          <div class="cards two-column">
-            <article class="card">
-              <header class="card-header">
-                <h3>Data Science Trainee Intern</h3>
-                <span class="card-meta">Internshala &middot; May 2025 – Jul 2025</span>
-              </header>
-              <ul class="card-list">
-                <li>
-                  Built and evaluated 3+ machine learning models on datasets of 5,000+ records,
-                  achieving 85%+ accuracy.
-                </li>
-                <li>
-                  Designed 10+ business intelligence dashboards, reducing manual reporting effort by
-                  50%.
-                </li>
-              </ul>
-              <p class="card-tags">
-                Python &middot; Machine Learning &middot; Data Analysis &middot; Data Visualization
-              </p>
-            </article>
-
-            <article class="card">
-              <header class="card-header">
-                <h3>Web Developer Intern</h3>
-                <span class="card-meta">Acmegrade &middot; Jun 2024 – Jul 2024</span>
-              </header>
-              <ul class="card-list">
-                <li>
-                  Developed 10+ mobile‑responsive web pages and 12 interactive UI components,
-                  reducing drop‑off rate by 30%.
-                </li>
-                <li>
-                  Optimized MongoDB database schema for 3,000+ records, improving query response
-                  time by 40%.
-                </li>
-              </ul>
-              <p class="card-tags">
-                HTML &middot; CSS &middot; JavaScript &middot; MongoDB
-              </p>
-            </article>
-          </div>
+          <ol class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <article class="card" data-spot>
+                <header class="card-header">
+                  <h3>Data Science Trainee</h3>
+                  <p class="card-meta">Internshala &middot; May 2025 – Jul 2025</p>
+                </header>
+                <ul class="card-list">
+                  <li>
+                    Built and evaluated 3+ machine learning models on datasets of 5,000+ records,
+                    achieving 85%+ accuracy.
+                  </li>
+                  <li>
+                    Designed 10+ business intelligence dashboards, reducing manual reporting effort
+                    by 50%.
+                  </li>
+                </ul>
+                <ul class="tag-list">
+                  <li>Python</li>
+                  <li>Machine Learning</li>
+                  <li>Data Analysis</li>
+                  <li>Data Visualization</li>
+                </ul>
+              </article>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <article class="card" data-spot>
+                <header class="card-header">
+                  <h3>Web Developer</h3>
+                  <p class="card-meta">Acmegrade &middot; Jun 2024 – Jul 2024</p>
+                </header>
+                <ul class="card-list">
+                  <li>
+                    Developed 10+ mobile-responsive web pages and 12 interactive UI components,
+                    reducing drop-off rate by 30%.
+                  </li>
+                  <li>
+                    Optimised the MongoDB schema for 3,000+ records, improving query response time
+                    by 40%.
+                  </li>
+                </ul>
+                <ul class="tag-list">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>MongoDB</li>
+                </ul>
+              </article>
+            </li>
+          </ol>
         </div>
       </section>
 
@@ -199,142 +281,225 @@
       <section id="projects" class="section">
         <div class="container">
           <div class="section-heading">
-            <h2>Projects</h2>
+            <h2 data-type>Projects</h2>
+            <p>Hover (or swipe) a project to flip through its screens. Source code on GitHub and, where deployed, a live demo.</p>
           </div>
-          <div class="cards two-column">
-            <article class="card">
-              <header class="card-header">
-                <h3>E‑Commerce Web Application</h3>
-              </header>
-              <ul class="card-list">
-                <li>
-                  Built a full‑stack e‑commerce platform with product listings, authentication, and
-                  shopping cart.
-                </li>
-                <li>
-                  Optimized MongoDB schema, reducing data retrieval time by 30%.
-                </li>
-              </ul>
-              <p class="card-tags">
-                MongoDB &middot; JavaScript &middot; HTML &middot; CSS
+          <div class="project-grid">
+            <!-- To change a link: edit the href of the GitHub / Live Demo buttons below.
+                 For a live demo, replace href="#projects" and remove the data-pending attribute.
+                 Slides: add or remove <img> tags inside a .shots-track; dots update automatically. -->
+            <article class="card project" data-spot>
+              <div class="shots" data-slides tabindex="0" role="group" aria-roledescription="carousel" aria-label="KKM Classroom – Online Assessment Test Platform screenshots">
+                <div class="shots-track">
+                  <img src="assets/projects/classroom-1-home.webp" alt="KKM Classroom home page" width="1200" height="600" loading="eager" decoding="async" draggable="false" />
+                  <img src="assets/projects/classroom-2-exam.webp" alt="Secure timed exam with question palette" width="1200" height="600" loading="lazy" decoding="async" draggable="false" />
+                  <img src="assets/projects/classroom-3-instructions.webp" alt="Exam instructions and rules screen" width="1200" height="600" loading="lazy" decoding="async" draggable="false" />
+                  <img src="assets/projects/classroom-4-analysis.webp" alt="Result analysis dashboard with charts" width="1200" height="600" loading="lazy" decoding="async" draggable="false" />
+                  <img src="assets/projects/classroom-5-typing.webp" alt="Typing practice with speed and accuracy" width="1200" height="600" loading="lazy" decoding="async" draggable="false" />
+                  <img src="assets/projects/classroom-6-teacher.webp" alt="Teacher workspace listing exams" width="1200" height="600" loading="lazy" decoding="async" draggable="false" />
+                  <img src="assets/projects/classroom-7-signup.webp" alt="Student and teacher sign-up form" width="1200" height="600" loading="lazy" decoding="async" draggable="false" />
+                </div>
+                <div class="shots-dots" aria-hidden="true"></div>
+              </div>
+              <div class="project-body">
+              <p class="project-kind">Full-stack web app</p>
+              <h3>KKM Classroom – Online Assessment Test Platform</h3>
+              <p class="project-desc">
+                A web platform for taking and managing online assessments, built with a React front end, a Node.js back end and MongoDB for storage.
               </p>
+              <ul class="card-list">
+                <li>Responsive React interface for students and teachers: secure timed exams, result analysis and typing practice.</li>
+                <li>Node.js REST API connected to a MongoDB data model.</li>
+              </ul>
+              <ul class="tag-list">
+                <li>React</li>
+                <li>Node.js</li>
+                <li>MongoDB</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="btn small ghost"
+                  href="https://github.com/KeshavMishra45?tab=repositories"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="KKM Classroom – Online Assessment Test Platform – GitHub repository"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.17 9.06 7.57 10.53.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.03-3.08.67-3.73-1.32-3.73-1.32-.5-1.28-1.22-1.63-1.22-1.63-.99-.68.08-.66.08-.66 1.1.08 1.68 1.14 1.68 1.14.97 1.66 2.55 1.18 3.18.9.1-.7.38-1.18.68-1.45-2.46-.28-5.04-1.23-5.04-5.49 0-1.21.43-2.2 1.14-2.98-.12-.28-.5-1.4.11-2.92 0 0 .95-.3 3.12 1.14a10.7 10.7 0 0 1 5.68 0c2.17-1.44 3.12-1.14 3.12-1.14.61 1.52.24 2.64.12 2.92.71.78 1.13 1.77 1.13 2.98 0 4.28-2.59 5.2-5.06 5.47.39.34.73 1.02.73 2.06 0 1.49-.01 2.69-.01 3.06 0 .29.2.64.76.53a10.74 10.74 0 0 0 7.56-10.52C23.1 5.33 18.27.5 12 .5Z" /></svg>
+                  GitHub
+                </a>
+                <a
+                  class="btn small primary"
+                  href="#projects"
+                  data-pending
+                  aria-label="KKM Classroom – Online Assessment Test Platform – live demo"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H6v11h11v-5h2v7H4V5h1Z"
+                    />
+                  </svg>
+                  Live Demo
+                </a>
+              </div>
+              </div>
             </article>
 
-            <article class="card">
-              <header class="card-header">
-                <h3>Movie Recommendation System</h3>
-              </header>
-              <ul class="card-list">
-                <li>
-                  Developed a collaborative filtering recommendation system trained on 1,000+ movie
-                  records.
-                </li>
-                <li>
-                  Integrated the ML model with a React UI, improving recommendation relevance by
-                  40%.
-                </li>
-              </ul>
-              <p class="card-tags">
-                Python &middot; React &middot; MongoDB &middot; JavaScript
+            <article class="card project" data-spot>
+              <div class="shots" data-slides tabindex="0" role="group" aria-roledescription="carousel" aria-label="KKMANIME – Anime Recommendation System screenshots">
+                <div class="shots-track">
+                  <img src="assets/projects/anime-1-hero.webp" alt="KKMANIME home page with recommendation search" width="1200" height="600" loading="eager" decoding="async" draggable="false" />
+                  <img src="assets/projects/anime-2-browse.webp" alt="Anime catalog grouped by genre" width="1200" height="600" loading="lazy" decoding="async" draggable="false" />
+                  <img src="assets/projects/anime-3-recommend.webp" alt="Personalised recommendations with match percentages" width="1200" height="600" loading="lazy" decoding="async" draggable="false" />
+                  <img src="assets/projects/anime-4-details.webp" alt="Title details with genres and main character" width="1200" height="600" loading="lazy" decoding="async" draggable="false" />
+                </div>
+                <div class="shots-dots" aria-hidden="true"></div>
+              </div>
+              <div class="project-body">
+              <p class="project-kind">Machine learning &amp; web</p>
+              <h3>KKMANIME – Anime Recommendation System</h3>
+              <p class="project-desc">
+                A recommendation system that suggests anime titles, combining a Python recommendation engine with a React interface and a PHP and SQL data layer.
               </p>
+              <ul class="card-list">
+                <li>Python-based recommendation logic surfaced through a React UI.</li>
+                <li>PHP and SQL back end for storing and serving title data.</li>
+              </ul>
+              <ul class="tag-list">
+                <li>Python</li>
+                <li>React</li>
+                <li>PHP</li>
+                <li>SQL</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  class="btn small ghost"
+                  href="https://github.com/KeshavMishra45?tab=repositories"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="KKMANIME – Anime Recommendation System – GitHub repository"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.17 9.06 7.57 10.53.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.03-3.08.67-3.73-1.32-3.73-1.32-.5-1.28-1.22-1.63-1.22-1.63-.99-.68.08-.66.08-.66 1.1.08 1.68 1.14 1.68 1.14.97 1.66 2.55 1.18 3.18.9.1-.7.38-1.18.68-1.45-2.46-.28-5.04-1.23-5.04-5.49 0-1.21.43-2.2 1.14-2.98-.12-.28-.5-1.4.11-2.92 0 0 .95-.3 3.12 1.14a10.7 10.7 0 0 1 5.68 0c2.17-1.44 3.12-1.14 3.12-1.14.61 1.52.24 2.64.12 2.92.71.78 1.13 1.77 1.13 2.98 0 4.28-2.59 5.2-5.06 5.47.39.34.73 1.02.73 2.06 0 1.49-.01 2.69-.01 3.06 0 .29.2.64.76.53a10.74 10.74 0 0 0 7.56-10.52C23.1 5.33 18.27.5 12 .5Z" /></svg>
+                  GitHub
+                </a>
+                <a
+                  class="btn small primary"
+                  href="#projects"
+                  data-pending
+                  aria-label="KKMANIME – Anime Recommendation System – live demo"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H6v11h11v-5h2v7H4V5h1Z"
+                    />
+                  </svg>
+                  Live Demo
+                </a>
+              </div>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- Skills & Education -->
+      <!-- Skills -->
       <section id="skills" class="section section-alt">
-        <div class="container split">
-          <div>
-            <div class="section-heading">
-              <h2>Technical Skills</h2>
+        <div class="container">
+          <div class="section-heading">
+            <h2 data-type>Technical skills</h2>
+          </div>
+          <div class="skill-grid">
+            <div class="card" data-spot>
+              <h3>Programming</h3>
+              <ul class="pills">
+                <li>Python</li>
+                <li>Java</li>
+                <li>C</li>
+                <li>JavaScript</li>
+                <li>PHP</li>
+                <li>SQL</li>
+              </ul>
             </div>
-            <div class="pill-groups">
-              <div class="pill-group">
-                <h3>Programming</h3>
-                <div class="pills">
-                  <span class="pill">Python</span>
-                  <span class="pill">Java</span>
-                  <span class="pill">C</span>
-                  <span class="pill">JavaScript</span>
-                  <span class="pill">PHP</span>
-                </div>
-              </div>
-              <div class="pill-group">
-                <h3>Web Development</h3>
-                <div class="pills">
-                  <span class="pill">HTML</span>
-                  <span class="pill">CSS</span>
-                  <span class="pill">React</span>
-                  <span class="pill">Node.js</span>
-                </div>
-              </div>
-              <div class="pill-group">
-                <h3>Databases</h3>
-                <div class="pills">
-                  <span class="pill">MongoDB</span>
-                  <span class="pill">MySQL</span>
-                </div>
-              </div>
-              <div class="pill-group">
-                <h3>Tools & Data Science</h3>
-                <div class="pills">
-                  <span class="pill">Git</span>
-                  <span class="pill">GitHub</span>
-                  <span class="pill">Docker</span>
-                  <span class="pill">Machine Learning</span>
-                  <span class="pill">Predictive Analytics</span>
-                  <span class="pill">Data Visualization</span>
-                </div>
-              </div>
+            <div class="card" data-spot>
+              <h3>Web development</h3>
+              <ul class="pills">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>React</li>
+                <li>Node.js</li>
+              </ul>
+            </div>
+            <div class="card" data-spot>
+              <h3>Databases</h3>
+              <ul class="pills">
+                <li>MongoDB</li>
+                <li>MySQL</li>
+                <li>SQL</li>
+              </ul>
+            </div>
+            <div class="card" data-spot>
+              <h3>Tools &amp; data science</h3>
+              <ul class="pills">
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>Docker</li>
+                <li>Machine Learning</li>
+                <li>Predictive Analytics</li>
+                <li>Data Visualization</li>
+              </ul>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div>
-            <div class="section-heading">
-              <h2>Education</h2>
-            </div>
-            <div class="education">
-              <div class="edu-item">
+      <!-- Education -->
+      <section id="education" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <h2 data-type>Education</h2>
+          </div>
+          <div class="edu-grid">
+            <article class="card" data-spot>
+              <header class="card-header">
                 <h3>B.Tech – Computer Science &amp; Engineering</h3>
-                <p>Gandhi Engineering College &middot; 2023 – Present</p>
-                <p class="edu-meta">CGPA: 8.7</p>
-              </div>
-              <div class="edu-item">
+                <p class="card-meta">Gandhi Engineering College &middot; Sep 2023 – Present</p>
+              </header>
+              <p class="edu-score">CGPA 8.66</p>
+            </article>
+            <article class="card" data-spot>
+              <header class="card-header">
                 <h3>Class XII</h3>
-                <p>DAV Public School Bhandarkola &middot; 2023</p>
-                <p class="edu-meta">Score: 78%</p>
-              </div>
-            </div>
-
-            <div class="section-heading small">
-              <h3>Relevant Coursework</h3>
-            </div>
-            <ul class="card-list">
-              <li>Data Structures &amp; Algorithms</li>
-              <li>Database Management Systems</li>
-              <li>Operating Systems</li>
-              <li>Object‑Oriented Programming</li>
-              <li>Machine Learning Fundamentals</li>
-            </ul>
+                <p class="card-meta">DAV Public School Bhandarkola &middot; 2023</p>
+              </header>
+              <p class="edu-score">78%</p>
+            </article>
+            <article class="card edu-courses" data-spot>
+              <h3>Relevant coursework</h3>
+              <ul class="pills">
+                <li>Data Structures &amp; Algorithms</li>
+                <li>Database Management Systems</li>
+                <li>Operating Systems</li>
+                <li>Object-Oriented Programming</li>
+                <li>Machine Learning Fundamentals</li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
 
       <!-- Contact -->
-      <section id="contact" class="section contact-section">
+      <section id="contact" class="section section-alt contact-section">
         <div class="container">
           <div class="section-heading">
-            <h2>Contact</h2>
+            <h2 data-type>Get in touch</h2>
             <p>
-              Whether you are looking for a data‑driven project collaborator, a full‑stack
-              developer, or an intern for your team, feel free to reach out.
+              Looking for a data-driven project collaborator, a full-stack developer or an intern
+              for your team? Send me a message.
             </p>
           </div>
           <div class="contact-grid">
-            <div class="contact-card">
+            <div class="card contact-card" data-spot>
               <h3>Direct</h3>
-              <ul>
+              <ul class="contact-list">
                 <li>
                   <span class="meta-label">Email</span>
                   <a href="mailto:keshavmishradeoghar2021@gmail.com"
@@ -350,76 +515,53 @@
                   <span>Bhubaneswar, India</span>
                 </li>
               </ul>
-              <div class="contact-social">
-                <span class="meta-label">Social</span>
-                <div class="social-links">
-                  <a
-                    href="https://www.linkedin.com/in/keshav-mishra-003666340"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="social-link linkedin"
-                  >
-                    <span class="social-icon">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                          d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.29 8.33H4.7V24H.29zM8.42 8.33h4.2v2.13h.06c.58-1.1 2-2.26 4.11-2.26 4.4 0 5.21 2.9 5.21 6.67V24h-4.42v-7.66c0-1.83-.03-4.19-2.55-4.19-2.55 0-2.94 1.99-2.94 4.05V24H8.42z"
-                        />
-                      </svg>
-                    </span>
-                    <span>LinkedIn</span>
-                  </a>
-                  <a
-                    href="https://github.com/KeshavMishra45"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="social-link github"
-                  >
-                    <span class="social-icon">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                          d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.17 9.06 7.57 10.53.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.03-3.08.67-3.73-1.32-3.73-1.32-.5-1.28-1.22-1.63-1.22-1.63-.99-.68.08-.66.08-.66 1.1.08 1.68 1.14 1.68 1.14.97 1.66 2.55 1.18 3.18.9.1-.7.38-1.18.68-1.45-2.46-.28-5.04-1.23-5.04-5.49 0-1.21.43-2.2 1.14-2.98-.12-.28-.5-1.4.11-2.92 0 0 .95-.3 3.12 1.14a10.7 10.7 0 0 1 5.68 0c2.17-1.44 3.12-1.14 3.12-1.14.61 1.52.24 2.64.12 2.92.71.78 1.13 1.77 1.13 2.98 0 4.28-2.59 5.2-5.06 5.47.39.34.73 1.02.73 2.06 0 1.49-.01 2.69-.01 3.06 0 .29.2.64.76.53a10.74 10.74 0 0 0 7.56-10.52C23.1 5.33 18.27.5 12 .5Z"
-                        />
-                      </svg>
-                    </span>
-                    <span>GitHub</span>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/keshav_mishra_10"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="social-link instagram"
-                  >
-                    <span class="social-icon">
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path
-                          d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1Zm2.9-1.1a4.5 4.5 0 0 0-1.2-3.2A4.5 4.5 0 0 0 16.5 1.5C15.1 1.4 8.9 1.4 7.5 1.5a4.5 4.5 0 0 0-3.2 1.2A4.5 4.5 0 0 0 3.1 5.9C3 7.3 3 13.5 3.1 14.9a4.5 4.5 0 0 0 1.2 3.2 4.5 4.5 0 0 0 3.2 1.2c1.4.1 7.6.1 9 0a4.5 4.5 0 0 0 3.2-1.2 4.5 4.5 0 0 0 1.2-3.2c.1-1.4.1-7.6 0-9Zm-2 11a2.6 2.6 0 0 1-1.5 1.5c-1.1.4-3.8.3-5.4.3s-4.3.1-5.4-.3a2.6 2.6 0 0 1-1.5-1.5c-.4-1.1-.3-3.8-.3-5.4s-.1-4.3.3-5.4a2.6 2.6 0 0 1 1.5-1.5C7 3.2 9.7 3.3 11.3 3.3s4.3-.1 5.4.3a2.6 2.6 0 0 1 1.5 1.5c.4 1.1.3 3.8.3 5.4s.1 4.3-.3 5.4Z"
-                        />
-                      </svg>
-                    </span>
-                    <span>Instagram</span>
-                  </a>
-                </div>
+              <div class="social-links">
+                <a
+                  href="https://www.linkedin.com/in/keshav-mishra-003666340"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  class="social-link"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.29 8.33H4.7V24H.29zM8.42 8.33h4.2v2.13h.06c.58-1.1 2-2.26 4.11-2.26 4.4 0 5.21 2.9 5.21 6.67V24h-4.42v-7.66c0-1.83-.03-4.19-2.55-4.19-2.55 0-2.94 1.99-2.94 4.05V24H8.42z" /></svg>
+                  LinkedIn
+                </a>
+                <a
+                  href="https://github.com/KeshavMishra45"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  class="social-link"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.17 9.06 7.57 10.53.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.03-3.08.67-3.73-1.32-3.73-1.32-.5-1.28-1.22-1.63-1.22-1.63-.99-.68.08-.66.08-.66 1.1.08 1.68 1.14 1.68 1.14.97 1.66 2.55 1.18 3.18.9.1-.7.38-1.18.68-1.45-2.46-.28-5.04-1.23-5.04-5.49 0-1.21.43-2.2 1.14-2.98-.12-.28-.5-1.4.11-2.92 0 0 .95-.3 3.12 1.14a10.7 10.7 0 0 1 5.68 0c2.17-1.44 3.12-1.14 3.12-1.14.61 1.52.24 2.64.12 2.92.71.78 1.13 1.77 1.13 2.98 0 4.28-2.59 5.2-5.06 5.47.39.34.73 1.02.73 2.06 0 1.49-.01 2.69-.01 3.06 0 .29.2.64.76.53a10.74 10.74 0 0 0 7.56-10.52C23.1 5.33 18.27.5 12 .5Z" /></svg>
+                  GitHub
+                </a>
+                <a
+                  href="https://www.instagram.com/keshav_mishra_10"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  class="social-link"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1Zm2.9-1.1a4.5 4.5 0 0 0-1.2-3.2A4.5 4.5 0 0 0 16.5 1.5C15.1 1.4 8.9 1.4 7.5 1.5a4.5 4.5 0 0 0-3.2 1.2A4.5 4.5 0 0 0 3.1 5.9C3 7.3 3 13.5 3.1 14.9a4.5 4.5 0 0 0 1.2 3.2 4.5 4.5 0 0 0 3.2 1.2c1.4.1 7.6.1 9 0a4.5 4.5 0 0 0 3.2-1.2 4.5 4.5 0 0 0 1.2-3.2c.1-1.4.1-7.6 0-9Zm-2 11a2.6 2.6 0 0 1-1.5 1.5c-1.1.4-3.8.3-5.4.3s-4.3.1-5.4-.3a2.6 2.6 0 0 1-1.5-1.5c-.4-1.1-.3-3.8-.3-5.4s-.1-4.3.3-5.4a2.6 2.6 0 0 1 1.5-1.5C7 3.2 9.7 3.3 11.3 3.3s4.3-.1 5.4.3a2.6 2.6 0 0 1 1.5 1.5c.4 1.1.3 3.8.3 5.4s.1 4.3-.3 5.4Z" /></svg>
+                  Instagram
+                </a>
               </div>
             </div>
-            <form class="contact-form" onsubmit="return handleContactSubmit(event)">
+
+            <form class="card contact-form" onsubmit="return handleContactSubmit(event)">
               <h3>Send a message</h3>
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" required />
+                <input id="name" name="name" type="text" autocomplete="name" required />
               </div>
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" required />
+                <input id="email" name="email" type="email" autocomplete="email" required />
               </div>
               <div class="field">
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
               </div>
-              <button type="submit" class="btn primary full-width">Submit</button>
-              <p class="form-note">
-                This demo form uses JavaScript only and will open your email client with a
-                pre‑filled message.
-              </p>
+              <button type="submit" class="btn primary full-width">Send message</button>
+              <p class="form-note">This opens your email app with the message pre-filled.</p>
             </form>
           </div>
         </div>
@@ -427,13 +569,83 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>&copy; <span id="year"></span> Keshav Mishra. All rights reserved.</p>
-        <a href="#top" class="back-to-top">Back to top</a>
+      <div class="container">
+        <div class="footer-top">
+          <p class="footer-copy">Copyright &copy; <span id="year">2026</span> Keshav Mishra <span class="clue" tabindex="0">&mdash; psst, keep tapping on my image</span></p>
+          <nav class="footer-nav" aria-label="Footer">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+            <a href="https://github.com/KeshavMishra45" target="_blank" rel="noreferrer noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/keshav-mishra-003666340" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+          </nav>
+        </div>
+        <ul class="badges">
+          <li class="badge badge-yellow" title="CGPA 8.66, B.Tech CSE">
+            <svg viewBox="0 0 100 100" role="img" aria-label="CGPA 8.66, B.Tech CSE">
+              <defs><path id="ring1" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0" /></defs>
+              <circle cx="50" cy="50" r="50" />
+              <text class="badge-ring"><textPath href="#ring1" startOffset="0">B.TECH CSE &#183; CGPA &#183; B.TECH CSE &#183;</textPath></text>
+              <text class="badge-center" x="50" y="58" text-anchor="middle">8.66</text>
+            </svg>
+          </li>
+          <li class="badge badge-blue" title="2 internships">
+            <svg viewBox="0 0 100 100" role="img" aria-label="2 internships">
+              <defs><path id="ring2" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0" /></defs>
+              <circle cx="50" cy="50" r="50" />
+              <text class="badge-ring"><textPath href="#ring2" startOffset="0">INTERNSHIPS &#183; DATA SCIENCE &#183; WEB &#183;</textPath></text>
+              <text class="badge-center" x="50" y="58" text-anchor="middle">2</text>
+            </svg>
+          </li>
+          <li class="badge badge-red" title="2 full-stack and ML projects">
+            <svg viewBox="0 0 100 100" role="img" aria-label="2 full-stack and ML projects">
+              <defs><path id="ring3" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0" /></defs>
+              <circle cx="50" cy="50" r="50" />
+              <text class="badge-ring"><textPath href="#ring3" startOffset="0">FULL-STACK &#183; ML PROJECTS &#183; BUILT &#183;</textPath></text>
+              <text class="badge-center" x="50" y="58" text-anchor="middle">2</text>
+            </svg>
+          </li>
+          <li class="badge badge-green" title="85 percent plus ML model accuracy">
+            <svg viewBox="0 0 100 100" role="img" aria-label="85 percent plus ML model accuracy">
+              <defs><path id="ring4" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0" /></defs>
+              <circle cx="50" cy="50" r="50" />
+              <text class="badge-ring"><textPath href="#ring4" startOffset="0">ML MODEL ACCURACY &#183; 5,000+ RECORDS &#183;</textPath></text>
+              <text class="badge-center" x="50" y="58" text-anchor="middle">85%+</text>
+            </svg>
+          </li>
+        </ul>
       </div>
     </footer>
+
+    <button class="to-top" aria-label="Back to top" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-1.4 1.4L13 8.8V20h-2V8.8l-4.6 4.6L5 12l7-7Z" /></svg>
+    </button>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <!-- Hidden easter egg: opened by tapping the profile photo three times -->
+    <div class="game" id="game" role="dialog" aria-modal="true" aria-labelledby="game-title" hidden>
+      <div class="game-card">
+        <button class="game-exit" type="button" aria-label="Exit game">Exit</button>
+        <h2 id="game-title">Tic Tac Toe</h2>
+        <p class="game-sub">You are <b class="x">X</b> &middot; I am <b class="o">O</b></p>
+        <div class="game-score" aria-live="off">
+          <span>You <b id="score-you">0</b></span>
+          <span>Draw <b id="score-draw">0</b></span>
+          <span>Bot <b id="score-cpu">0</b></span>
+        </div>
+        <div class="board" id="board" role="grid" aria-label="Tic Tac Toe board"></div>
+        <p class="game-status" id="game-status" role="status" aria-live="polite">Your move.</p>
+        <div class="game-menu" id="game-menu" hidden>
+          <button class="btn primary" type="button" id="game-back">Back to portfolio</button>
+          <button class="btn ghost" type="button" id="game-again">Play again</button>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
 </html>
-
